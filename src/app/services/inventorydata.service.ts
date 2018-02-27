@@ -16,6 +16,7 @@ export class InventorydataService {
   itemURL     : string = 'http://localhost:3000/api/item';
   itemEditURL : string = 'http://localhost:3000/api/itemedit';
   itemRemoveURL : string = 'http://localhost:3000/api/itemremove';
+  itemIdURL : string = 'http://localhost:3000/api/storeid';
 
   inventory : Item[] = [];
   updatedItem : Item;
@@ -38,6 +39,10 @@ export class InventorydataService {
 
   removeItem(item : Item) : Observable<Item>{
     return this._http.post<Item>(this.itemRemoveURL, item, httpOptions)
+  }
+
+  getstoredId() : Observable<any>{
+    return this._http.get<any>(this.itemIdURL);
   }
 
 }

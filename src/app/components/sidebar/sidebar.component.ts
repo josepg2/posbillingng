@@ -59,6 +59,7 @@ export class SidebarComponent {
                 break;
             }
             case 8:{
+                this.router.navigateByUrl('/newbill');
                 break;
             }
             case 9:{

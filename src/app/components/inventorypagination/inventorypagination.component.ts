@@ -4,12 +4,12 @@ import { PaginationInstance } from 'ngx-pagination';
 import { Item } from '../../models/Item';
 
 @Component({
-  selector: 'app-paginationctrl',
-  templateUrl: './paginationctrl.component.html',
-  styleUrls: ['./paginationctrl.component.css'],
+  selector: 'app-inventorypagination',
+  templateUrl: './inventorypagination.component.html',
+  styleUrls: ['./inventorypagination.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PaginationctrlComponent implements OnInit {
+export class InventorypaginationComponent implements OnInit {
 
   @Input('data') inventory: Item[];
 

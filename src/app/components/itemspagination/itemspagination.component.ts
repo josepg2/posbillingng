@@ -4,11 +4,11 @@ import { PaginationInstance } from 'ngx-pagination';
 import { Item } from '../../models/Item';
 
 @Component({
-  selector: 'app-itempagination',
-  templateUrl: './itempagination.component.html',
-  styleUrls: ['./itempagination.component.css']
+  selector: 'app-itemspagination',
+  templateUrl: './itemspagination.component.html',
+  styleUrls: ['./itemspagination.component.css']
 })
-export class ItempaginationComponent implements OnInit {
+export class ItemspaginationComponent implements OnInit {
 
   @Output() updateItem : EventEmitter<Item> = new EventEmitter();
   @Output() removeItem : EventEmitter<Item> = new EventEmitter();

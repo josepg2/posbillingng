@@ -82,6 +82,11 @@ export class ItemsComponent implements OnInit {
     this._inventorydataService.getInventory().subscribe(items => {
       this.inventory = items;
     });
+    this._inventorydataService.getstoredId().subscribe(itemid => {
+      if(!this.isEdit){
+        this.currentItem.prodid = 'P' + (itemid.prodid + 1).toString();
+      }
+    });
   }
 
 
@@ -134,34 +139,42 @@ export class ItemsComponent implements OnInit {
   }
 
   onAddItem(item: Item) {
+    item.prodid = this.currentItem.prodid;
     this._inventorydataService.savePost(item).subscribe(item => {
-      this.inventory.unshift(item);
-      this.setEmptyItem();
-      this.isActive = false;
+      if (item.status === 'ok') {
+        this.inventory.unshift(item);
+        this.setEmptyItem();
+        this.isActive = false;
+      } else {
+        this.isActive = false;
+        //do error popup here
+      }
     }, error => {
       console.log(error);
     })
   }
 
   setEmptyItem() {
-    
-    this.isEdit = false;
     this.form.reset();
-    this.currentItem = {
-      id: null,
-      prodid: null,
-      prodname: null,
-      proddisc: null,
-      isremoved: false,
-      stock: null,
-      unitprice: null,
-      category: null,
-      tax: null,
-      hasoff: false,
-      offtype: 'percent',
-      offvalue: 0,
-      updated_by: null
-    };
+    this._inventorydataService.getstoredId().subscribe(itemid => {
+      this.isEdit = false;
+      this.currentItem = {
+        id: null,
+        prodid: 'P' + (itemid.prodid + 1).toString(),
+        prodname: null,
+        proddisc: null,
+        isremoved: false,
+        stock: null,
+        unitprice: null,
+        category: null,
+        tax: null,
+        hasoff: false,
+        offtype: 'percent',
+        offvalue: 0,
+        updated_by: null
+      };
+    })
+
   }
 
 }

@@ -12,9 +12,10 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { InventorydataService } from './services/inventorydata.service';
-import { PaginationctrlComponent } from './components/paginationctrl/paginationctrl.component';
+import { InventorypaginationComponent } from './components/inventorypagination/inventorypagination.component';
 import { ItemsComponent } from './components/items/items.component';
-import { ItempaginationComponent } from './components/itempagination/itempagination.component';
+import { ItemspaginationComponent } from './components/itemspagination/itemspagination.component';
+import { BillingComponent } from './components/billing/billing.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { ItempaginationComponent } from './components/itempagination/itempaginat
     SidebarComponent,
     DashboardComponent,
     InventoryComponent,
-    PaginationctrlComponent,
+    InventorypaginationComponent,
     ItemsComponent,
-    ItempaginationComponent
+    ItemspaginationComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,

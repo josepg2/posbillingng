@@ -6,7 +6,7 @@
         <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
           <div class="form-group items-form">
             <label class="col-form-label-sm">Item ID</label>
-            <input type="text" [ngClass]="{'is-invalid':itemProdID.errors && itemProdID.touched}" #itemProdID="ngModel" class="form-control form-control-sm" [(ngModel)]="currentItem.prodid" name="prodid" [disabled]="isEdit" required>
+            <input type="text" [ngClass]="{'is-invalid':itemProdID.errors && itemProdID.touched}" #itemProdID="ngModel" class="form-control form-control-sm" [(ngModel)]="currentItem.prodid" name="prodid" disabled required>
           </div>
           <div class="form-group items-form">
             <label class="col-form-label-sm">Item name</label>
@@ -84,7 +84,7 @@
       </div>
     </div>
     <div class="col-8 border rounded pt-3">
-      <app-itempagination [data]="inventory" (updateItem)="onUpdateItem($event)" (removeItem)="onRemoveItem($event)"></app-itempagination>
+      <app-itemspagination [data]="inventory" (updateItem)="onUpdateItem($event)" (removeItem)="onRemoveItem($event)"></app-itemspagination>
     </div>
   </div>
 </div>
