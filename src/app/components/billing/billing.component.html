@@ -1,3 +1,53 @@
-<p>
-  billing works!
-</p>
+<div class="container-fluid my-3">
+  <div class="row">
+    <div class="col">
+      <div class="card card-body">
+        <h5 class="card-title">Billing</h5>
+        <div class="form-row">
+            <div class="input-group input-group-sm inventory-filter col-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Item</div>
+              </div>
+              <ng-select class="form-control" placeholder="Item" [items]="inventory" bindLabel="prodname" [(ngModel)]="selectedItem"
+                (change)="'console.log(1)'">
+              </ng-select>
+            </div>
+            <div class="input-group input-group-sm col-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">QTY</div>
+                </div>
+                <input type="text" class="form-control" placeholder="MRP">
+              </div>
+            <div class="input-group input-group-sm col-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">MRP</div>
+              </div>
+              <input type="text" class="form-control" placeholder="MRP" disabled>
+            </div>
+            <div class="input-group input-group-sm col-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">TAX</div>
+              </div>
+              <input type="text" class="form-control" placeholder="TAX" disabled>
+            </div>
+            <div class="input-group input-group-sm  col-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Discount</div>
+              </div>
+              <input type="text" class="form-control" placeholder="Discount">
+            </div>
+            <div class="col-1">
+                <button type="submit" (click)="onNewBill()" class="btn btn-sm btn-primary">Submit</button>
+            </div>
+        </div>
+      </div>
+      <div class="card card-body">
+        {{formattedDate }}
+      </div>
+      <div class="card card-body">
+        <ng-datepicker [(ngModel)]="date" ></ng-datepicker>
+      </div>
+    </div>
+  </div>
+
+</div>

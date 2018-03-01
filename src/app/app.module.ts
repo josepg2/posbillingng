@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgDatepickerModule } from 'ng2-datepicker';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -35,7 +36,8 @@ import { BillingComponent } from './components/billing/billing.component';
     HttpClientModule,
     NgxPaginationModule,
     NgSelectModule,
-    FormsModule
+    FormsModule,
+    NgDatepickerModule
   ],
   providers: [InventorydataService],
   bootstrap: [AppComponent]

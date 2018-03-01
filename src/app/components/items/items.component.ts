@@ -81,6 +81,7 @@ export class ItemsComponent implements OnInit {
   ngOnInit() {
     this._inventorydataService.getInventory().subscribe(items => {
       this.inventory = items;
+      console.log(items);
     });
     this._inventorydataService.getstoredId().subscribe(itemid => {
       if(!this.isEdit){
