@@ -52,8 +52,8 @@ export class InventorydataService {
     return this._http.get<any>(this.itemIdURL);
   }
 
-  getBill(startdate : Date , enddate : Date) : Observable<any>{
-    return this._http.get<any>(this.billURL, {params : {startdate : startdate.toString(), enddate : enddate.toString()}})
+  getBill(parameters : {dateFrom : string, dateTo : string}) : Observable<any>{
+    return this._http.get<any>(this.billURL, {params : parameters})
   }
 
 }

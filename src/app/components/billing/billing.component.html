@@ -9,32 +9,32 @@
                 <div class="input-group-text">Item</div>
               </div>
               <ng-select class="form-control" placeholder="Item" [items]="inventory" bindLabel="prodname" [(ngModel)]="selectedItem"
-                (change)="'console.log(1)'">
+                (change)="itemSelected(selectedItem)">
               </ng-select>
             </div>
             <div class="input-group input-group-sm col-2">
                 <div class="input-group-prepend">
                   <div class="input-group-text">QTY</div>
                 </div>
-                <input type="text" class="form-control" placeholder="MRP">
+                <input type="number" class="form-control" placeholder="MRP" [(ngModel)]="billItem.quantity" [disabled]="!selectedItem">
               </div>
             <div class="input-group input-group-sm col-2">
               <div class="input-group-prepend">
                 <div class="input-group-text">MRP</div>
               </div>
-              <input type="text" class="form-control" placeholder="MRP" disabled>
+              <input type="text" class="form-control" placeholder="MRP" [(ngModel)]="billItem.unitprice" disabled>
             </div>
             <div class="input-group input-group-sm col-2">
               <div class="input-group-prepend">
                 <div class="input-group-text">TAX</div>
               </div>
-              <input type="text" class="form-control" placeholder="TAX" disabled>
+              <input type="text" class="form-control" placeholder="TAX" [(ngModel)]="billItem.tax" disabled>
             </div>
             <div class="input-group input-group-sm  col-2">
               <div class="input-group-prepend">
                 <div class="input-group-text">Discount</div>
               </div>
-              <input type="text" class="form-control" placeholder="Discount">
+              <input type="text" class="form-control" placeholder="Discount" [(ngModel)]="billItem.offvalue" [disabled]="!selectedItem">
             </div>
             <div class="col-1">
                 <button type="submit" (click)="onNewBill()" class="btn btn-sm btn-primary">Submit</button>
@@ -44,8 +44,11 @@
       <div class="card card-body">
         {{formattedDate }}
       </div>
-      <div class="card card-body">
-        <ng-datepicker [(ngModel)]="date" ></ng-datepicker>
+      <div class="card card-body col-6">
+        <ng-datepicker [(ngModel)]="dateFrom" ></ng-datepicker>
+      </div>
+      <div class="card card-body col-6">
+        <ng-datepicker [(ngModel)]="dateTo" ></ng-datepicker>
       </div>
     </div>
   </div>

@@ -10,7 +10,8 @@ import {
   Item
 } from '../../models/Item';
 import {
-  Bill
+  Bill,
+  BillingItem
 } from '../../models/Bill';
 
 @Component({
@@ -22,9 +23,10 @@ export class BillingComponent implements OnInit {
 
   inventory: Item[] = [];
   selectedItem: Item;
+  billItem: BillingItem;
 
-  date : Date;
-  formattedDate : string;
+  //dateFrom : Date;
+  //dateTo : Date;
 
   bill: Bill = {
     id: 100,
@@ -52,25 +54,62 @@ export class BillingComponent implements OnInit {
   }
 
   constructor(private _inventorydataService: InventorydataService) {
-    this.date = new Date();
+    //this.dateFrom = new Date();
+    //this.dateTo = new Date();
   }
 
   ngOnInit() {
+    this.billItem = this.getEmptyBillItem();
     this._inventorydataService.getInventory().subscribe(items => {
       this.inventory = items;
     })
   }
 
   onNewBill() {
-   //this._inventorydataService.newBill(this.bill).subscribe(out => {
-   //  console.log(out);
-   //})
+    console.log(this.billItem);
 
-   // this._inventorydataService.getBill(new Date(), new Date()).subscribe(out => {
-   //   console.log(out);
-   // })
-   this.date.setHours(0,0,0,0);
-   this.formattedDate = this.date.toISOString().substr(0, 10)+' '+this.date.toISOString().substr(11, 8 )
+  }
+
+  itemSelected(item: Item) {
+    if (item) {
+      this.billItem.prodid = item.prodid;
+      this.billItem.prodname = item.prodname;
+      this.billItem.quantity = 1;
+      this.billItem.unitprice = item.unitprice;
+      this.billItem.tax = item.tax;
+      this.billItem.offvalue = item.hasoff ? (item.offtype === 'rupee' ? item.offvalue : (item.offvalue * item.unitprice / 100)) : 0;
+    } else {
+      this.billItem = this.getEmptyBillItem();
+    }
+  }
+
+  getEmptyBillItem(): BillingItem {
+    return {
+      prodid: null,
+      prodname: null,
+      quantity: null,
+      unitprice: null,
+      tax: null,
+      offvalue: null
+    }
+  }
+
+  //this._inventorydataService.newBill(this.bill).subscribe(out => {
+  //  console.log(out);
+  //})
+
+  //this._inventorydataService.getBill(this.dateToQueryObject(this.dateFrom, this.dateTo)).subscribe(out => {
+  //   console.log(out);
+  //})
+
+  dateToQueryObject(dateFrom: Date, dateTo: Date): any {
+    dateFrom.setHours(0, 0, 0, 0);
+    dateTo.setDate(dateTo.getDate() + 1);
+    dateTo.setHours(0, 0, 0, 0);
+    return {
+      dateFrom: dateFrom.toISOString().substr(0, 10) + ' ' + dateFrom.toISOString().substr(11, 8),
+      dateTo: dateTo.toISOString().substr(0, 10) + ' ' + dateTo.toISOString().substr(11, 8)
+    }
   }
 
 }
