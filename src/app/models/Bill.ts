@@ -8,7 +8,7 @@ export interface BillingItem {
 }
 
 export interface Bill {
-    id      : number,
+    id?     : number,
     billid  : string,
     tax     : number,
     offvalue: number,

@@ -12,7 +12,7 @@ app-root {
     width: 100%;
 }
 
-app-dashboard,app-inventory,app-items,app-billing {
+app-dashboard,app-inventory,app-items,app-billing,app-billhistory {
     background:white;
     vertical-align: top;
     position: absolute;
@@ -21,7 +21,14 @@ app-dashboard,app-inventory,app-items,app-billing {
     right: 0px;
     width: calc(100% - 150px);
     height: 100%;
-    overflow: auto;
+    overflow-y: scroll;
+    font-size: 0.9rem;
+    line-height: 1.25;
+}
+
+app-billhistorypagination {   
+    font-size: 0.9rem;
+    line-height: 1.25;
 }
 
 .input-group-sm.inventory-filter > .ng-select.form-control {
@@ -52,5 +59,13 @@ ng-select.form-control > .ng-select-dropdown-outer .ng-select-dropdown .ng-optio
 
 .form-control.ng-select.ng-multiple .ng-control .ng-value-container {
     padding-top: 4px;
+}
+
+::-webkit-scrollbar {
+display: none;
+}
+
+ng-datepicker, .my-date-picker > .ngx-datepicker-container .ngx-datepicker-input {
+    width : 100% !important;
 }
 

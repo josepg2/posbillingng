@@ -8,7 +8,7 @@ export interface Item {
     unitprice : number,
     category  : string,
     tax       : number,
-    hasoff    : boolean,
+    hasoff    : number,
     offtype   : string,
     offvalue  : number,
     updated_by: string,

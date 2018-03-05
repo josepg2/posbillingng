@@ -19,42 +19,9 @@ import {
 export class ItemsComponent implements OnInit {
 
   inventory: Item[] = [];
-  categories: string[] = ["A", "B", "C"];
-  taxes: any[] = [{
-    id: 0,
-    name: "GST @ 0",
-    value: 0
-  }, {
-    id: 1,
-    name: "GST @ 5",
-    value: 5
-  }, {
-    id: 2,
-    name: "GST @ 12",
-    value: 12
-  }, {
-    id: 10,
-    name: "GST @ 18",
-    value: 18
-  }];
-  offers: any[] = [{
-    name: "Percent",
-    value: 0,
-    type: "percent"
-  }, {
-    name: "Rupee",
-    value: 0,
-    type: "rupee"
-  }, {
-    name: "Summer 5",
-    value: 5,
-    type: "percent"
-  }]
-  selectedoffer: any = {
-    name: "Selct Offer",
-    value: 0,
-    type: ""
-  };
+  categories: any[] = [];
+  taxes: any[] = [];
+  offers: any[] = [];
   isActive: boolean = false;
   isEdit: boolean = false;
 
@@ -70,7 +37,7 @@ export class ItemsComponent implements OnInit {
     unitprice: null,
     category: null,
     tax: null,
-    hasoff: false,
+    hasoff: 0,
     offtype: 'percent',
     offvalue: 0,
     updated_by: null
@@ -81,19 +48,36 @@ export class ItemsComponent implements OnInit {
   ngOnInit() {
     this._inventorydataService.getInventory().subscribe(items => {
       this.inventory = items;
-      console.log(items);
     });
     this._inventorydataService.getstoredId().subscribe(itemid => {
       if(!this.isEdit){
         this.currentItem.prodid = 'P' + (itemid.prodid + 1).toString();
       }
     });
+    this._inventorydataService.getCategory().subscribe(category => {
+      this.categories = category;
+    });
+    this._inventorydataService.getOffers().subscribe(offers => {
+      this.offers = offers;
+      console.log(offers);
+    })
+    this._inventorydataService.getTaxes().subscribe(taxes => {
+      this.taxes = taxes;
+    })
   }
 
 
-  onChangeOffer(offer: any) {
-    this.currentItem.offtype = offer.type;
-    this.currentItem.offvalue = offer.value;
+  onChangeOffer(offerId: number) {
+
+    this.offers.some((cur, index) => {
+      if(cur.offerid == offerId){
+        this.currentItem.hasoff = offerId;
+        this.currentItem.offtype = this.offers[index].type;
+        this.currentItem.offvalue = this.offers[index].value;
+        return true;
+      }
+      return false;
+    })
   }
 
   onSubmit({
@@ -169,7 +153,7 @@ export class ItemsComponent implements OnInit {
         unitprice: null,
         category: null,
         tax: null,
-        hasoff: false,
+        hasoff: 0,
         offtype: 'percent',
         offvalue: 0,
         updated_by: null

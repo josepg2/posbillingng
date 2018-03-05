@@ -17,6 +17,10 @@ import { InventorypaginationComponent } from './components/inventorypagination/i
 import { ItemsComponent } from './components/items/items.component';
 import { ItemspaginationComponent } from './components/itemspagination/itemspagination.component';
 import { BillingComponent } from './components/billing/billing.component';
+import { BillhistoryComponent } from './components/billhistory/billhistory.component';
+import { BillhistorypaginationComponent } from './components/billhistorypagination/billhistorypagination.component';
+import { DeterminePipe } from './pipes/determine.pipe';
+import { OfferPipe } from './pipes/offer.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { BillingComponent } from './components/billing/billing.component';
     InventorypaginationComponent,
     ItemsComponent,
     ItemspaginationComponent,
-    BillingComponent
+    BillingComponent,
+    BillhistoryComponent,
+    BillhistorypaginationComponent,
+    DeterminePipe,
+    OfferPipe
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,8 @@ import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 import { Item } from '../models/Item';
-import { Bill } from '../models/Bill';
+import { Bill, BillingItem } from '../models/Bill';
+import { Tax } from '../models/Tax';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -20,6 +21,10 @@ export class InventorydataService {
   itemIdURL : string = 'http://localhost:3000/api/storeid';
   newbillURL : string = 'http://localhost:3000/api/newbill';
   billURL : string = 'http://localhost:3000/api/bill';
+  billItemsURL : string = 'http://localhost:3000/api/billitems';
+  taxURL : string = 'http://localhost:3000/api/tax';
+  categoryURL : string = 'http://localhost:3000/api/category';
+  offerURL : string = 'http://localhost:3000/api/offers';
 
   inventory : Item[] = [];
   updatedItem : Item;
@@ -54,6 +59,22 @@ export class InventorydataService {
 
   getBill(parameters : {dateFrom : string, dateTo : string}) : Observable<any>{
     return this._http.get<any>(this.billURL, {params : parameters})
+  }
+
+  getBillItems(billId : string) : Observable<BillingItem[]>{
+    return this._http.get<BillingItem[]>(this.billItemsURL, {params : {billid : billId}})
+  }
+
+  getTaxes(): Observable<Tax[]> {
+    return this._http.get<Tax[]>(this.taxURL);
+  }
+
+  getCategory(): Observable<any[]> {
+    return this._http.get<any[]>(this.categoryURL);
+  }
+
+  getOffers(): Observable<any[]> {
+    return this._http.get<any[]>(this.offerURL);
   }
 
 }

@@ -17,6 +17,7 @@ export class InventoryComponent implements OnInit {
   selectedItem : Item;
   selectedCategory : Item[];
   filterClicked : number = 0;
+  categories : any[];
 
   constructor(private _inventorydataService: InventorydataService) { }
 
@@ -24,7 +25,10 @@ export class InventoryComponent implements OnInit {
     this._inventorydataService.getInventory().subscribe(items => {
       this.inventory = items;
       this.inventorySorted = items;
-    })
+    });
+    this._inventorydataService.getCategory().subscribe(items => {
+      this.categories = items;
+    });
     Mousetrap.unbind('enter');
   }
     
@@ -39,7 +43,7 @@ export class InventoryComponent implements OnInit {
           unitprice : 0,
           category  : "string",
           tax       : 0,
-          hasoff    : true,
+          hasoff    : 0,
           offtype   : "string",
           offvalue  : 0,
           updated_by: "string",
@@ -55,29 +59,17 @@ export class InventoryComponent implements OnInit {
   
   returnOne = () => {
     if(this.selectedItem){
-    }else{
-      switch(this.filterClicked){
-        case 0 :
-          this.showAll();
-          break;
-        case 1 :
-          this.filterLowStock();
-          break;
-        case 2 :
-          this.filterEmptyStock();
-          break;
-        case 3 :
-          this.filterWithOffer();
-          break;
-      }
     }
   };
 
-  returnTwo = () => {
+  onItemSelected = () => {
     if(this.selectedItem){
-      console.log("clicked")
+      this.filterClicked = undefined;
       this.inventorySorted = [];
       this.inventorySorted.push(this.selectedItem);
+    }else{
+      this.filterClicked = 0;
+      this.showAll();
     }
   };
 

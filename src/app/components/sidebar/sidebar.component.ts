@@ -63,6 +63,7 @@ export class SidebarComponent {
                 break;
             }
             case 9:{
+                this.router.navigateByUrl('/billhistory');
                 break;
             }
         }
