@@ -8,35 +8,20 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-4">
-            <div class="input-group inventory-filter input-group-sm mb-3">
-              <ng-select class="form-control" placeholder="Item ID" [items]="inventory" bindLabel="prodid" [(ngModel)]="selectedItem"
+          <div class="col-4 inventory-search">
+              <ng-select class="ng-selct-form-control" placeholder="Item ID" [items]="inventory" bindLabel="prodid" [(ngModel)]="selectedItem"
                 (change)="onItemSelected()">
               </ng-select>
-              <div class="input-group-append">
-                <button (click)="returnTwo()" class="btn btn-outline-secondary" type="button">Search</button>
-              </div>
-            </div>
           </div>
-          <div class="col-4">
-            <div class="input-group inventory-filter input-group-sm mb-3">
+          <div class="col-4 inventory-search">
               <ng-select class="form-control" placeholder="Item Name" [items]="inventory" bindLabel="prodname" [(ngModel)]="selectedItem"
                 (change)="onItemSelected()">
               </ng-select>
-              <div class="input-group-append">
-                <button (click)="returnTwo()" class="btn btn-outline-secondary" type="button">Search</button>
-              </div>
-            </div>
           </div>
-          <div class="col-4">
-            <div class="input-group inventory-filter input-group-sm mb-3">
+          <div class="col-4 inventory-search">
               <ng-select class="form-control" placeholder="Category" [items]="categories" bindLabel="name" [(ngModel)]="selectedCategory"
                 multiple="true" >
               </ng-select>
-              <div class="input-group-append">
-                <button (click)="returnThree()" class="btn btn-outline-secondary" type="button">Search</button>
-              </div>
-            </div>
           </div>
         </div>
         <div class="row">

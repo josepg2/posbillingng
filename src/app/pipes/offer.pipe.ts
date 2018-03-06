@@ -19,7 +19,6 @@ export class OfferPipe implements PipeTransform {
       return '--';
     }else if (offerid === 1){
       let unit = (offertype==='rupee')? '\&\#8377\;' : '%';
-      console.log(offervalue.toString()+ ' ' + unit)
       return offervalue.toString()+ ' ' + unit;
     }else {
       let offername : string = '';
@@ -31,7 +30,6 @@ export class OfferPipe implements PipeTransform {
         return false;
       })
       let unit = (offertype==='rupee')? '\&\#8377\;' : '%';
-      console.log(offername + '|' + offervalue.toString() + ' ' + unit)
       return offername + ' | ' + offervalue.toString() + ' ' + unit ;
     }
   }

@@ -28,7 +28,6 @@ export class BillhistoryComponent implements OnInit {
 
   onShowBillItem(bill : Bill) : void {
     this._inventorydataService.getBillItems(bill.billid).subscribe(result => {
-      console.log(result);
       this.bills.some((cur, index) => {
         if(cur.billid == bill.billid){
           this.bills[index].items = result;
@@ -52,7 +51,6 @@ export class BillhistoryComponent implements OnInit {
   getBills(){
     this._inventorydataService.getBill(this.dateToQueryObject(this.dateFrom, this.dateTo)).subscribe(result => {
       this.bills = result;
-      console.log(result);
     })
   }
 

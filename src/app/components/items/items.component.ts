@@ -59,7 +59,6 @@ export class ItemsComponent implements OnInit {
     });
     this._inventorydataService.getOffers().subscribe(offers => {
       this.offers = offers;
-      console.log(offers);
     })
     this._inventorydataService.getTaxes().subscribe(taxes => {
       this.taxes = taxes;

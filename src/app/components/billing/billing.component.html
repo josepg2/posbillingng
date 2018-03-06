@@ -136,12 +136,12 @@
           <span class="d-block h-25 text-left pt-1 my-2"><h6>Total Tax Amount</h6></span>
         </div>
         <div class="col-2">
-            <span class="d-block h-25 text-left pt-1 my-2"><h6>: {{bill.offvalue | currency:'INR':true:'1.2-2'}} </h6></span>
-            <span class="d-block h-25 text-left pt-1 my-2"><h6>: {{bill.tax | currency:'INR':true:'1.2-2'}}</h6></span>
+            <span class="d-block h-25 text-left pt-1 my-2"><h6>: {{bill.offvalue | currency:'INR':'symbol-narrow':'1.2-2'}} </h6></span>
+            <span class="d-block h-25 text-left pt-1 my-2"><h6>: {{bill.tax | currency:'INR':'symbol-narrow':'1.2-2'}}</h6></span>
           </div>
       <div class="col-2">
         <span class="d-block h-25 align-top text-center pt-1"><h6>TOTAL</h6></span>
-        <span class="d-block h-75 align-bottom text-center pt-2"><h2>{{bill.total | currency:'INR':true:'1.2-2'}}</h2></span>
+        <span class="d-block h-75 align-bottom text-center pt-2"><h2>{{bill.total | currency:'INR':'symbol-narrow':'1.2-2'}}</h2></span>
       </div>
       <div class="col-2">
           <button type="button" (click)="onNewBill()" class="btn btn-sm btn-primary btn-block" [disabled]="bill.items.length < 1 || onDC || isBillSaved" >Save</button>

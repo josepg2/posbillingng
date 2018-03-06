@@ -43,7 +43,7 @@
           <td scope="row">{{item.prodid}}</td>
           <td>{{item.prodname}}</td>
           <td [class.bg-warning]="item.stock < 6 && item.stock > 0" [class.bg-danger]="item.stock == 0">{{item.stock}}</td>
-          <td>{{item.unitprice | currency:'INR':true:'1.2-2'}}</td>
+          <td>{{item.unitprice | currency:'INR':'symbol-narrow':'1.2-2'}}</td>
           <td>{{item.category | determine:'category'}}</td>
           <td>{{item.tax | determine}}</td>
           <td [innerHTML]="item.hasoff | offer:item.offtype:item.offvalue"></td>
