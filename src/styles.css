@@ -2,6 +2,7 @@
 html,body {
     height: 100%;
     width: 100%;
+    background-color: #D4D8D9 !important; 
 }
 
 app-root { 
@@ -13,7 +14,6 @@ app-root {
 }
 
 app-dashboard,app-inventory,app-items,app-billing,app-billhistory {
-    background:white;
     vertical-align: top;
     position: absolute;
     left: 150px;
@@ -41,6 +41,7 @@ app-billhistorypagination {
 .inventory-search > .ng-select .ng-control  {            
     min-height: 31px;
     border-radius: 0.2rem;
+    border: 1px solid rgba(77, 85, 87, 0.5);
 }
 
 .inventory-search > ng-select > .ng-select-dropdown-outer .ng-select-dropdown .ng-option {

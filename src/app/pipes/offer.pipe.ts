@@ -15,7 +15,7 @@ export class OfferPipe implements PipeTransform {
   }
 
   transform(offerid: number, offertype: string, offervalue: number): string {
-    if(offerid === 0){
+    if(!offerid){
       return '--';
     }else if (offerid === 1){
       let unit = (offertype==='rupee')? '\&\#8377\;' : '%';

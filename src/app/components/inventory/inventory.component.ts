@@ -57,11 +57,6 @@ export class InventoryComponent implements OnInit {
     this.inventorySorted = this.inventory;
   }
   
-  returnOne = () => {
-    if(this.selectedItem){
-    }
-  };
-
   onItemSelected = () => {
     if(this.selectedItem){
       this.filterClicked = undefined;
@@ -71,10 +66,6 @@ export class InventoryComponent implements OnInit {
       this.filterClicked = 0;
       this.showAll();
     }
-  };
-
-  returnThree = () => {
-    console.log(this.selectedCategory);
   };
 
   filterLowStock = () => {

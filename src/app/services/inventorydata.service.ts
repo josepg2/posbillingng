@@ -30,7 +30,6 @@ export class InventorydataService {
   updatedItem : Item;
 
   constructor(private _http: HttpClient) { 
-    
   }
 
   getInventory(): Observable<Item[]> {
@@ -67,6 +66,10 @@ export class InventorydataService {
 
   getTaxes(): Observable<Tax[]> {
     return this._http.get<Tax[]>(this.taxURL);
+  }
+
+  removeTax(id : number): Observable<any> {
+    return this._http.delete<any>(this.taxURL + "/?id=" + id, httpOptions)
   }
 
   getCategory(): Observable<any[]> {

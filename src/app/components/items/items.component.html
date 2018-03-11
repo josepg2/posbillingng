@@ -1,8 +1,12 @@
-<div class="container-fluid my-3">
-  <div class="row pb-3">
+<div class="container-fluid">
+    <div class="row py-2 title-bar">
+        <div class="col">
+          <h4><span *ngIf="!isEdit">Add</span><span *ngIf="isEdit">Edit</span> Item</h4>
+        </div>
+      </div>
+  <div class="row pb-3 mt-3">
     <div class="col-4">
-      <div class="card card-body">
-        <h2><span *ngIf="!isEdit">Add</span><span *ngIf="isEdit">Edit</span> Item</h2>
+      <div class="card card-body p-3">
         <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
           <div class="form-group items-form">
             <label class="col-form-label-sm">Item ID</label>
