@@ -1,15 +1,11 @@
-<div class="container-fluid my-3">
-  <div *ngIf="showError" class="row">
-    <div class="col">
-        <div class="alert alert-danger" role="alert">
-            {{message}}
-          </div>
-    </div>
-  </div>
+<div class="container-fluid">
+    <div class="row py-2 title-bar inline-header">
+        <div class="col">
+          <h4>Billing</h4>
+        </div>
+      </div>
   <div class="row">
-    <div class="col">
-      <div class="card card-body">
-        <h5 class="card-title">Billing</h5>
+      <div class="card card-body p-2 mt-0 mb-3">
         <div class="form-row">
           <div class="input-group input-group-sm inventory-filter col-3">
             <div class="input-group-prepend">
@@ -47,15 +43,14 @@
           </div>
         </div>
       </div>
-      
-      <!-- <div class="card card-body col-6">
-        <ng-datepicker [(ngModel)]="dateFrom" ></ng-datepicker>
-      </div>
-      <div class="card card-body col-6">
-        <ng-datepicker [(ngModel)]="dateTo" ></ng-datepicker>
-      </div> -->
-    </div>
   </div>
+  <div *ngIf="showError" class="row">
+      <div class="col">
+          <div class="alert alert-danger" role="alert">
+              {{message}}
+            </div>
+      </div>
+    </div>
   <div class="row bill-items mt-2">
     <div class="col">
       <ul class="list-group">

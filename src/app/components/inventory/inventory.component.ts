@@ -41,7 +41,7 @@ export class InventoryComponent implements OnInit {
           isremoved : true,
           stock     : 0,
           unitprice : 0,
-          category  : "string",
+          category  : 0,
           tax       : 0,
           hasoff    : 0,
           offtype   : "string",

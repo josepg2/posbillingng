@@ -6,7 +6,7 @@ export interface Item {
     isremoved : boolean,
     stock     : number,
     unitprice : number,
-    category  : string,
+    category  : number,
     tax       : number,
     hasoff    : number,
     offtype   : string,

@@ -15,3 +15,13 @@
     line-height: 1.25;
     border-radius: 0px;
 }
+
+.title-bar {
+    background-color: #394044;
+    color: #7ED3E9;
+}
+
+.inline-header h4{
+  display: inline-block;
+  vertical-align: baseline;
+}
