@@ -25,3 +25,7 @@
   display: inline-block;
   vertical-align: baseline;
 }
+
+.borderless td, .borderless th {
+    border: none;
+}
