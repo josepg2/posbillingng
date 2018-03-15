@@ -17,30 +17,30 @@
         </div>
         <div class="input-group input-group-sm col-2">
           <div class="input-group-prepend">
-            <div class="input-group-text">QTY</div>
+            <div class="input-group-text">Quantity</div>
           </div>
-          <input type="number" class="form-control" placeholder="MRP" [(ngModel)]="billItem.quantity" [disabled]="!selectedItem" (blur)="onQuantityChange()">
+          <input type="number" class="form-control" placeholder="" [(ngModel)]="billItem.quantity" [disabled]="!selectedItem" (blur)="onQuantityChange()">
         </div>
         <div class="input-group input-group-sm col-2">
           <div class="input-group-prepend">
             <div class="input-group-text">MRP</div>
           </div>
-          <input type="text" class="form-control" placeholder="MRP" [(ngModel)]="billItem.unitprice" disabled>
+          <input type="text" class="form-control" placeholder="" [(ngModel)]="billItem.unitprice" disabled>
         </div>
         <div class="input-group input-group-sm col-2">
           <div class="input-group-prepend">
-            <div class="input-group-text">TAX</div>
+            <div class="input-group-text">Tax</div>
           </div>
-          <input type="text" class="form-control" placeholder="TAX" [(ngModel)]="billItem.tax" disabled>
+          <input type="text" class="form-control" placeholder="" [(ngModel)]="billItem.tax" disabled>
         </div>
         <div class="input-group input-group-sm  col-2">
           <div class="input-group-prepend">
             <div class="input-group-text">Discount</div>
           </div>
-          <input type="text" class="form-control" placeholder="Discount" [(ngModel)]="billItem.offvalue" [disabled]="!selectedItem">
+          <input type="text" class="form-control" placeholder="" [(ngModel)]="billItem.offvalue" [disabled]="!selectedItem">
         </div>
         <div class="input-group input-group-sm col-1">
-          <button type="submit" (click)="onNewBillItem()" class="btn btn-sm btn-outline-primary btn-block" [disabled]="!selectedItem">Add Item</button>
+          <button type="submit" (click)="onNewBillItem()" class="btn btn-sm btn-outline-primary btn-block" [disabled]="!selectedItem">Add</button>
         </div>
       </div>
     </div>

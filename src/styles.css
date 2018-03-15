@@ -82,7 +82,20 @@ ng-select.form-control > .ng-select-dropdown-outer .ng-select-dropdown .ng-optio
 display: none;
 }
 
-ng-datepicker, .my-date-picker > .ngx-datepicker-container .ngx-datepicker-input {
-    width : 100% !important;
+ng-datepicker, .my-date-picker > .ngx-datepicker-container {
+    display: inline;
+    background-color: #394044;
 }
 
+ng-datepicker, .my-date-picker > .ngx-datepicker-container .ngx-datepicker-input {
+    margin-bottom: 0.25rem;
+    margin-right: 0.5rem;
+    border-radius: 6px !important;
+    border-color: #7ED3E9 !important;
+    background-color: #394044;
+    color:#7ED3E9 !important;
+}
+
+ng-datepicker, .my-date-picker > .ngx-datepicker-container .ngx-datepicker-calendar-container {
+    z-index: 50;
+}
