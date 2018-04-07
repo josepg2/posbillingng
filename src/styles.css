@@ -13,7 +13,7 @@ app-root {
     width: 100%;
 }
 
-app-dashboard,app-inventory,app-items,app-billing,app-billhistory {
+app-dashboard,app-inventory,app-items,app-billing,app-billhistory,app-settings {
     vertical-align: top;
     position: absolute;
     left: 150px;

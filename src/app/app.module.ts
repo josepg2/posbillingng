@@ -13,6 +13,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { InventorydataService } from './services/inventorydata.service';
+import { StaticdataholdingService } from './services/staticdataholding.service';
 import { InventorypaginationComponent } from './components/inventorypagination/inventorypagination.component';
 import { ItemsComponent } from './components/items/items.component';
 import { ItemspaginationComponent } from './components/itemspagination/itemspagination.component';
@@ -21,6 +22,11 @@ import { BillhistoryComponent } from './components/billhistory/billhistory.compo
 import { BillhistorypaginationComponent } from './components/billhistorypagination/billhistorypagination.component';
 import { DeterminePipe } from './pipes/determine.pipe';
 import { OfferPipe } from './pipes/offer.pipe';
+import { SettingsComponent } from './components/settings/settings.component';
+import { UsersettingsComponent } from './components/usersettings/usersettings.component';
+import { CategorysettingsComponent } from './components/categorysettings/categorysettings.component';
+import { TaxsettingsComponent } from './components/taxsettings/taxsettings.component';
+import { OffersettingsComponent } from './components/offersettings/offersettings.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,12 @@ import { OfferPipe } from './pipes/offer.pipe';
     BillhistoryComponent,
     BillhistorypaginationComponent,
     DeterminePipe,
-    OfferPipe
+    OfferPipe,
+    SettingsComponent,
+    UsersettingsComponent,
+    CategorysettingsComponent,
+    TaxsettingsComponent,
+    OffersettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +58,10 @@ import { OfferPipe } from './pipes/offer.pipe';
     FormsModule,
     NgDatepickerModule
   ],
-  providers: [InventorydataService],
+  providers: [
+    InventorydataService,
+    StaticdataholdingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
