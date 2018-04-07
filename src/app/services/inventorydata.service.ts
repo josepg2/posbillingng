@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Item } from '../models/Item';
 import { Bill, BillingItem } from '../models/Bill';
 import { Tax } from '../models/Tax';
+import { Purchase } from '../models/Purchase';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -25,6 +26,7 @@ export class InventorydataService {
   taxURL : string = 'http://localhost:3000/api/tax';
   categoryURL : string = 'http://localhost:3000/api/category';
   offerURL : string = 'http://localhost:3000/api/offers';
+  purchaseURL : string = 'http://localhost:3000/api/purchase';
 
   inventory : Item[] = [];
   updatedItem : Item;
@@ -62,6 +64,14 @@ export class InventorydataService {
 
   getBillItems(billId : string) : Observable<BillingItem[]>{
     return this._http.get<BillingItem[]>(this.billItemsURL, {params : {billid : billId}})
+  }
+
+  newPurchase(purchase : Purchase) : Observable<any>{
+    return this._http.post<any>(this.purchaseURL, purchase, httpOptions)
+  }
+
+  getPurchase(parameters: {dateFrom : string, dateTo : string}) : Observable<any>{
+    return this._http.get<any>(this.purchaseURL, {params: parameters})
   }
 
   getTaxes(): Observable<Tax[]> {

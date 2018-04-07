@@ -53,9 +53,11 @@ export class SidebarComponent {
                 break;
             }
             case 6:{
+                this.router.navigateByUrl('/newpurchase');
                 break;
             }
             case 7:{
+                this.router.navigateByUrl('/purchasehistory');
                 break;
             }
             case 8:{

@@ -21,6 +21,8 @@ import { BillhistoryComponent } from './components/billhistory/billhistory.compo
 import { BillhistorypaginationComponent } from './components/billhistorypagination/billhistorypagination.component';
 import { DeterminePipe } from './pipes/determine.pipe';
 import { OfferPipe } from './pipes/offer.pipe';
+import { PurchaseComponent } from './components/purchase/purchase.component';
+import { PurchasehistoryComponent } from './components/purchasehistory/purchasehistory.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { OfferPipe } from './pipes/offer.pipe';
     BillhistoryComponent,
     BillhistorypaginationComponent,
     DeterminePipe,
-    OfferPipe
+    OfferPipe,
+    PurchaseComponent,
+    PurchasehistoryComponent
   ],
   imports: [
     BrowserModule,

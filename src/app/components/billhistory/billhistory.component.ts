@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  InventorydataService
-} from '../../services/inventorydata.service';
+import { InventorydataService } from '../../services/inventorydata.service';
 
 import { Bill, BillingItem } from '../../models/bill';
 
