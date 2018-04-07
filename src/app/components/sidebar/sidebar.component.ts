@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
+import { StaticdataholdingService } from '../../services/staticdataholding.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -18,6 +19,7 @@ export class SidebarComponent {
     isPurchaseHistoryClicked: boolean;
     isNewBillingClicked: boolean;
     isBillingHistoryClicked: boolean;
+    isSettingsClicked : boolean;
 
     constructor (private router : Router) {
         this.isDashClicked = true;
@@ -29,6 +31,7 @@ export class SidebarComponent {
         this.isPurchaseHistoryClicked = false;
         this.isNewBillingClicked = false;
         this.isBillingHistoryClicked = false;
+        this.isSettingsClicked = false;
     }
 
     sidebarBtnClicked(input : number){
@@ -68,6 +71,10 @@ export class SidebarComponent {
                 this.router.navigateByUrl('/billhistory');
                 break;
             }
+            case 10:{
+                this.router.navigateByUrl('/settings');
+                break;
+            }
         }
         
 
@@ -80,6 +87,7 @@ export class SidebarComponent {
         this.isPurchaseHistoryClicked = (input==7);
         this.isNewBillingClicked = (input==8);
         this.isBillingHistoryClicked = (input==9);
+        this.isSettingsClicked = (input==19);
     }
 
 }

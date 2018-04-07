@@ -27,6 +27,7 @@ export class InventorydataService {
   categoryURL : string = 'http://localhost:3000/api/category';
   offerURL : string = 'http://localhost:3000/api/offers';
   purchaseURL : string = 'http://localhost:3000/api/purchase';
+  userURL : string = 'http://localhost:3000/api/users';
 
   inventory : Item[] = [];
   updatedItem : Item;
@@ -88,6 +89,10 @@ export class InventorydataService {
 
   getOffers(): Observable<any[]> {
     return this._http.get<any[]>(this.offerURL);
+  }
+
+  getUsers(): Observable<any[]> {
+    return this._http.get<any[]>(this.userURL)
   }
 
 }

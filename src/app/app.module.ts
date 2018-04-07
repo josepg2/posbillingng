@@ -13,6 +13,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { InventorydataService } from './services/inventorydata.service';
+import { StaticdataholdingService } from './services/staticdataholding.service';
 import { InventorypaginationComponent } from './components/inventorypagination/inventorypagination.component';
 import { ItemsComponent } from './components/items/items.component';
 import { ItemspaginationComponent } from './components/itemspagination/itemspagination.component';
@@ -23,6 +24,11 @@ import { DeterminePipe } from './pipes/determine.pipe';
 import { OfferPipe } from './pipes/offer.pipe';
 import { PurchaseComponent } from './components/purchase/purchase.component';
 import { PurchasehistoryComponent } from './components/purchasehistory/purchasehistory.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { UsersettingsComponent } from './components/usersettings/usersettings.component';
+import { CategorysettingsComponent } from './components/categorysettings/categorysettings.component';
+import { TaxsettingsComponent } from './components/taxsettings/taxsettings.component';
+import { OffersettingsComponent } from './components/offersettings/offersettings.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +45,12 @@ import { PurchasehistoryComponent } from './components/purchasehistory/purchaseh
     DeterminePipe,
     OfferPipe,
     PurchaseComponent,
-    PurchasehistoryComponent
+    PurchasehistoryComponent,
+    SettingsComponent,
+    UsersettingsComponent,
+    CategorysettingsComponent,
+    TaxsettingsComponent,
+    OffersettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +62,10 @@ import { PurchasehistoryComponent } from './components/purchasehistory/purchaseh
     FormsModule,
     NgDatepickerModule
   ],
-  providers: [InventorydataService],
+  providers: [
+    InventorydataService,
+    StaticdataholdingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
