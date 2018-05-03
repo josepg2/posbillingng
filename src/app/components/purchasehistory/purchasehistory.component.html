@@ -10,5 +10,5 @@
         <button type="button" (click)="getPurchases()" class="btn btn-sm btn-info btn-inline-block mb-1 mr-3">Show</button>
       </div>
     </div>
-    
+    <app-puchasehistorypagination [data]="purchases" (showPurchaseItem)="onShowPurchaseItem($event)" (hidePurchaseItem)="onHidePurchaseItem($event)"></app-puchasehistorypagination>
 </div>

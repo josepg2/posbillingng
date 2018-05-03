@@ -5,7 +5,29 @@
   <div class="card-body">
       <div class="row">
         <div class="col-6">
-    
+          <button type="button" *ngIf="!isEdit" class="btn btn-outline-info btn-sm mb-2" (click)="onAddNewUser()">Create New</button>
+          <button type="button" *ngIf="isEdit" class="btn btn-outline-success btn-sm mb-2">Save</button>
+          <button type="button" *ngIf="isEdit" class="btn btn-outline-warning btn-sm mb-2">Cancel</button>
+          <div class="input-group input-group-sm mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">User</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" [(ngModel)]="user.username" name="Username">
+          </div>
+          <div class="input-group input-group-sm mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Password</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Password" [(ngModel)]="user.password" name="Password">
+          </div>
+          <div class="input-group input-group-sm mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <input type="checkbox" [(ngModel)]="user.canedit" name="Canedit">
+                </div>
+              </div>
+              <input type="text" class="form-control" placeholder="Can Edit/Update Inventory, Users, Category ..." aria-label="Text input with checkbox" disabled>
+            </div>
         </div>
         <div class="col-6">
           <div class="row">

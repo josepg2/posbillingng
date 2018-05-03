@@ -26,6 +26,29 @@ export class PurchasehistoryComponent implements OnInit {
   getPurchases(){
     this._inventorydataService.getPurchase(this.dateToQueryObject(this.dateFrom, this.dateTo)).subscribe(result => {
       this.purchases = result;
+      console.log(result)
+    })
+  }
+
+  onShowPurchaseItem(purchase : Purchase) : void {
+    this._inventorydataService.getPurchaseItems(purchase.purchaseid).subscribe(result => {
+      this.purchases.some((cur, index) => {
+        if(cur.purchaseid == purchase.purchaseid){
+          this.purchases[index].items = result;
+          return true;
+        }
+        else false;
+      })
+    })
+  }
+
+  onHidePurchaseItem(purchase : Purchase) : void {
+    this.purchases.some((cur, index) => {
+      if(cur.purchaseid == purchase.purchaseid){
+        this.purchases[index].items = [];
+        return true;
+      }
+      else false;
     })
   }
 

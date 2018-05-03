@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Item } from '../models/Item';
 import { Bill, BillingItem } from '../models/Bill';
 import { Tax } from '../models/Tax';
-import { Purchase } from '../models/Purchase';
+import { Purchase, PurchaseItem } from '../models/Purchase';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -27,7 +27,9 @@ export class InventorydataService {
   categoryURL : string = 'http://localhost:3000/api/category';
   offerURL : string = 'http://localhost:3000/api/offers';
   purchaseURL : string = 'http://localhost:3000/api/purchase';
-  userURL : string = 'http://localhost:3000/api/users';
+  purchaseItemURL : string = 'http://localhost:3000/api/purchaseitems';
+  usersURL : string = 'http://localhost:3000/api/users';
+  userURL : string = 'http://localhost:3000/api/user';
 
   inventory : Item[] = [];
   updatedItem : Item;
@@ -75,24 +77,20 @@ export class InventorydataService {
     return this._http.get<any>(this.purchaseURL, {params: parameters})
   }
 
-  getTaxes(): Observable<Tax[]> {
-    return this._http.get<Tax[]>(this.taxURL);
+  getPurchaseItems(purchaseId : string) : Observable<PurchaseItem[]>{
+    return this._http.get<PurchaseItem[]>(this.purchaseItemURL, {params : {purchaseid : purchaseId}})
   }
 
   removeTax(id : number): Observable<any> {
     return this._http.delete<any>(this.taxURL + "/?id=" + id, httpOptions)
   }
-
-  getCategory(): Observable<any[]> {
-    return this._http.get<any[]>(this.categoryURL);
-  }
-
-  getOffers(): Observable<any[]> {
-    return this._http.get<any[]>(this.offerURL);
-  }
-
+  
   getUsers(): Observable<any[]> {
-    return this._http.get<any[]>(this.userURL)
+    return this._http.get<any[]>(this.usersURL)
+  }
+
+  newUser(user : any) : Observable<any>{
+    return this._http.post<any>(this.userURL, user, httpOptions)
   }
 
 }

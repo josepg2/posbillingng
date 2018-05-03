@@ -14,7 +14,6 @@ export class OfferPipe implements PipeTransform {
     
 
   transform(offerid: number, offertype: string, offervalue: number): string {
-    console.log(this.offers);
     if(!offerid){
       return '--';
     }else if (offerid === 1){

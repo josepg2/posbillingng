@@ -29,6 +29,7 @@ import { UsersettingsComponent } from './components/usersettings/usersettings.co
 import { CategorysettingsComponent } from './components/categorysettings/categorysettings.component';
 import { TaxsettingsComponent } from './components/taxsettings/taxsettings.component';
 import { OffersettingsComponent } from './components/offersettings/offersettings.component';
+import { PuchasehistorypaginationComponent } from './components/puchasehistorypagination/puchasehistorypagination.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { OffersettingsComponent } from './components/offersettings/offersettings
     UsersettingsComponent,
     CategorysettingsComponent,
     TaxsettingsComponent,
-    OffersettingsComponent
+    OffersettingsComponent,
+    PuchasehistorypaginationComponent
   ],
   imports: [
     BrowserModule,

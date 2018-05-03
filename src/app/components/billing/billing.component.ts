@@ -5,6 +5,7 @@ import {
 import {
   InventorydataService
 } from '../../services/inventorydata.service';
+import { StaticdataholdingService } from '../../services/staticdataholding.service';
 
 import {
   Item
@@ -41,7 +42,7 @@ export class BillingComponent implements OnInit {
     items: []
   }
 
-  constructor(private _inventorydataService: InventorydataService) {
+  constructor(private _inventorydataService: InventorydataService, private _staticdataService: StaticdataholdingService) {
   }
 
   ngOnInit() {
@@ -49,9 +50,7 @@ export class BillingComponent implements OnInit {
     this._inventorydataService.getInventory().subscribe(items => {
       this.inventory = items;
     })
-    this._inventorydataService.getTaxes().subscribe(taxes => {
-      this.taxes = taxes;
-    })
+    this.taxes = this._staticdataService.getTaxes()
     this._inventorydataService.getstoredId().subscribe(itemid => {
         this.bill.billid = 'B' + (itemid.billid + 1).toString();
     });

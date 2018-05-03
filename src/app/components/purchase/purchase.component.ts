@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { InventorydataService } from '../../services/inventorydata.service';
+import { StaticdataholdingService } from '../../services/staticdataholding.service';
 
 import { Item } from '../../models/Item';
-import { Bill, BillingItem } from '../../models/Bill';
 import { Tax } from '../../models/Tax';
 import { Purchase, PurchaseItem } from '../../models/Purchase';
 
@@ -31,7 +31,7 @@ export class PurchaseComponent implements OnInit {
     items : []
   }
 
-  constructor(private _inventorydataService: InventorydataService) {
+  constructor(private _inventorydataService: InventorydataService, private _staticdataService: StaticdataholdingService) {
   }
 
   ngOnInit() {
@@ -39,9 +39,7 @@ export class PurchaseComponent implements OnInit {
     this._inventorydataService.getInventory().subscribe(items => {
       this.inventory = items;
     })
-    this._inventorydataService.getTaxes().subscribe(taxes => {
-      this.taxes = taxes;
-    })
+    this.taxes = this._staticdataService.getTaxes()
     this._inventorydataService.getstoredId().subscribe(itemid => {
         this.purchase.purchaseid = 'PU' + (itemid.purchaseid + 1).toString();
     });
